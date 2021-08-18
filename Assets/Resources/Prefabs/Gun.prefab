@@ -284,18 +284,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee76e61fbdcf334c97fe6569fd67f06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Barrel: {fileID: 8696005744906988716}
-  Force: 3
-  RechergeTime: 0.2
-  CountClip: 5
+  _weaponData: {fileID: 11400000, guid: d6b53a394051a344d9e36198b6d7bd4a, type: 2}
   AmmunitionType: 2
-  ShootableMask: 0
+  WeaponIcon: {fileID: 0}
+  Force: 400
+  RechergeTime: 0.2
+  CountClip: 99999
   Range: 100
+  Barrel: {fileID: 8696005744906988716}
+  ShootableMask: 0
   GunParticles: {fileID: 0}
   GunLine: {fileID: 8724089572117906686}
+  ShotGunLine: []
   GunLight: {fileID: 8736036873465834310}
   Animator: {fileID: 0}
   AudioSource: {fileID: 5105228961420419533}
+  PlayerTransform: {fileID: 0}
+  Unit: {fileID: 0}
 --- !u!82 &5105228961420419533
 AudioSource:
   m_ObjectHideFlags: 0
@@ -422,27 +427,27 @@ PrefabInstance:
     - target: {fileID: 7901057574098431957, guid: 5daf55bd0b297124eae5000ea80e4fb0,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.99813485
       objectReference: {fileID: 0}
     - target: {fileID: 7901057574098431957, guid: 5daf55bd0b297124eae5000ea80e4fb0,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0000000481159
+      value: 0.06104851
       objectReference: {fileID: 0}
     - target: {fileID: 7901057574098431957, guid: 5daf55bd0b297124eae5000ea80e4fb0,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7901057574098431957, guid: 5daf55bd0b297124eae5000ea80e4fb0,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000037596717
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7901057574098431957, guid: 5daf55bd0b297124eae5000ea80e4fb0,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7901057574098431957, guid: 5daf55bd0b297124eae5000ea80e4fb0,
         type: 3}

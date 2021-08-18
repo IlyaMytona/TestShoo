@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace Test
+namespace Test.Helper
 {
     public static partial class DateTimeExtensions
     {

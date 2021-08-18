@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿using Test.Enum;
+using Test.Interface;
+using UnityEngine;
+using Test.GameServices;
+using Test.Helper;
 
-
-namespace Test
+namespace Test.Controllers
 {
     public sealed class InputController :  IExecute
     {
@@ -10,13 +13,16 @@ namespace Test
         private KeyCode _cancel = KeyCode.Escape;
         private KeyCode _reloadClip = KeyCode.R;
         private int _mouseButton = (int)MouseButton.LeftButton;
-                
+        private int _mouseButtonKillPlayer = (int)MouseButton.RightButton;
+
         #endregion
+
 
         #region ClassLifeCycles
-                
+
 
         #endregion
+
 
         #region IExecuteController
 
@@ -58,7 +64,12 @@ namespace Test
             if (Input.GetAxis("Mouse ScrollWheel") < 0f)
             {
                 Services.Instance.LevelService.WeaponController.MouseScroll(MouseScrollWheel.Down);
-            }            
+            }
+
+            if (Input.GetButtonDown("Fire2"))
+            {
+                Services.Instance.LevelService.PlayerBehaviour.SetDamage(new InfoCollision(1, 100, 25));
+            }
         }
         
         #endregion

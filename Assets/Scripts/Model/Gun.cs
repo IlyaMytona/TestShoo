@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using Test.AmmunitionBullets;
+using Test.Controllers.TimeRemaining;
+using UnityEngine;
 
 
-namespace Test
+namespace Test.Model
 {
     public sealed class Gun : Weapon
     {
@@ -12,8 +14,8 @@ namespace Test
             if (_isReloading) return;
             if (Clip.CountAmmunition <= 0) return;
             _weaponBehaviour.Animator.SetTrigger("Fire");
-            var temAmmunition = _poolObject.GetObject(_weaponBehaviour.Barrel.position, _weaponBehaviour.Barrel.rotation);            
-            if (temAmmunition == null) return;            
+            var tempAmmunition = _poolObject.GetObject(_weaponBehaviour.Barrel.position, _weaponBehaviour.Barrel.rotation);            
+            if (tempAmmunition == null) return;            
             
             _gunAudioSource.Play(); //PlayOneShot
             _gunLight.enabled = true;
@@ -30,6 +32,7 @@ namespace Test
             if (Physics.Raycast(_shootRay, out _shootHit, _range, _shootableMask))
             {
                 //damage
+                AmmunitionApplyDamage(tempAmmunition, _shootHit.collider);
                 _gunLine.SetPosition(1, _shootHit.point);
             }
 
@@ -38,11 +41,10 @@ namespace Test
                 _gunLine.SetPosition(1, _shootRay.origin + _shootRay.direction * _range);
             }
 
-            temAmmunition.AddForce(_weaponBehaviour.Force);
+            tempAmmunition.AddForce(_weaponBehaviour.Force);
             Clip.CountAmmunition--;
             _isReadyToShoot = false;
             _timeRemaining.AddTimeRemaining(_weaponBehaviour.RechergeTime);            
-            //UiInterface.WeaponUiText.ShowData(_weapon.Clip.CountAmmunition, _weapon.CountClip);
         }
     }
 }

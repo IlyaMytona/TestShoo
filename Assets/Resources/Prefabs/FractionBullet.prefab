@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5994583420228061936}
   - component: {fileID: 4593896862285150306}
   - component: {fileID: 8774068306112865479}
+  - component: {fileID: -4518824991858184473}
   m_Layer: 0
   m_Name: FractionBullet
   m_TagString: Untagged
@@ -93,10 +94,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70bcbc61813378f4b93b7454521b7134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeToDestruct: 5
-  BaseDamage: 10
-  CurDamage: 20
-  Type: 1
+  AmmunitionSoData: {fileID: 11400000, guid: 10de3b4c6fc06304d8cc065ed3e0de7f, type: 2}
+--- !u!64 &-4518824991858184473
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5461104056199150457}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &6585420648893291224
 GameObject:
   m_ObjectHideFlags: 0

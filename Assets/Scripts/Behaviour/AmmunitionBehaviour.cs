@@ -1,18 +1,16 @@
-﻿using UnityEngine;
+﻿using Test.Enum;
+using UnityEngine;
 
 
-namespace Test
+namespace Test.Behaviour
 {
     public sealed class AmmunitionBehaviour : MonoBehaviour
     {
-        public float TimeToDestruct = 5;
-        public float BaseDamage = 10;
-        public float CurDamage;
-        public AmmunitionType Type = AmmunitionType.Bullet;
-        
-        private void Awake()
+        public AmmunitionSoData AmmunitionSoData;                
+
+        private void Start()
         {
-            CurDamage = BaseDamage;            
+            AmmunitionSoData.CurDamage = AmmunitionSoData.BaseDamage;            
         }        
     }
 }

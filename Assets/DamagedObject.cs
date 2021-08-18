@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Test.Enum;
+//using Test.GameServices;
+using UnityEngine;
 
 
 namespace Test 
@@ -15,9 +17,9 @@ namespace Test
 
         #region Unity Methods
 
-        protected virtual void Start()
+        protected virtual void Awake()
         {
-            instanceID = GetInstanceID();
+            instanceID = GetInstanceID();            
         }
 
         protected virtual void OnDestroy()
@@ -36,7 +38,7 @@ namespace Test
             else
                 return false;
         }
-
+        public abstract void ReceiveDamage(string jsonStr);
         public abstract void TakeDamage(GameObject user, int damage);
 
         #endregion

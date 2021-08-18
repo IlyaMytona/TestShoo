@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 
-namespace Test
+namespace Test.Controllers
 {
     public sealed class GameController : MonoBehaviour
     {

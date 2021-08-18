@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
+using Test.Controllers.TimeRemaining;
+using Test.Interface;
 
-
-namespace Test
+namespace Test.Controllers
 {
     public sealed class Controllers : IInitialization, ICleanUp
     {
@@ -28,7 +29,9 @@ namespace Test
         public Controllers()
         {
             _initializations = new List<IInitialization>();
-            _initializations.Add(new InitializeWeaponController()); 
+            _initializations.Add(new InitializePlayerSpawner());
+            _initializations.Add(new InitializeWeaponController());
+            _initializations.Add(new InitializeBotSpawner());
 
             _executeControllers = new List<IExecute>();
             _executeControllers.Add(new TimeRemainingController());
@@ -36,6 +39,7 @@ namespace Test
             _executeControllers.Add(new AmmunitionLifeCycleController());
             _executeControllers.Add(new AmmunitionApplyDamageController());
             
+
             _cleanUps = new List<ICleanUp>();
             _cleanUps.Add(new TimeRemainingCleanUp());
         }

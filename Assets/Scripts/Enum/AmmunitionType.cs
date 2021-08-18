@@ -1,4 +1,4 @@
-﻿namespace Test
+﻿namespace Test.Enum
 {
 	public enum AmmunitionType : byte
 	{

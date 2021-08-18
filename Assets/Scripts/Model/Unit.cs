@@ -1,50 +1,62 @@
 ﻿using System;
+using Test.Data;
+using Test.Enum;
+using Test.Interface;
 using UnityEngine;
 
-namespace Test
+
+namespace Test.Model
 {
-    public class Unit : DamagedObject, IUnit
+    public class Unit : MonoBehaviour, IUnit
     {
         #region Private Data
 
         private IPlayerMovement _movement;
-        [SerializeField] protected UnitStats _stats;
+        protected bool _isDie;
 
         #endregion
-
+        
 
         #region Fields
 
-        public event Action EventOnDamage;
         public event Action EventOnDie;
         public event Action EventOnRevive;
-        public readonly DamageReceiveData _damageReceiveData = new DamageReceiveData();
-
+        
         #endregion
 
 
         #region Properties
 
         public IPlayerMovement mover { get { return _movement;} set { _movement = value; }}
-        public DamageReceiveData damageReceiveData { get { return _damageReceiveData;}}
+        public Fraction fraction { get; protected set; }
+        public int InstanceID { get; protected set; }
+
+        #endregion
+
+
+        #region Unity Methods
+
+        protected virtual void Awake()
+        {
+            InstanceID = GetInstanceID();
+        }
 
         #endregion
 
 
         #region Methods
-
-        public override void TakeDamage(GameObject user, int damage)
+        protected virtual void Die()
         {
-            _stats.TakeDamage(damage);
-            DamageWithCombat(user);
+            _isDie = true;
+            EventOnDie?.Invoke();            
         }
 
-        protected virtual void DamageWithCombat(GameObject user)
+        protected virtual void Revive()
         {
-            EventOnDamage();
+            _isDie = false;
+            EventOnRevive?.Invoke();            
         }
 
         #endregion
     }
-
 }

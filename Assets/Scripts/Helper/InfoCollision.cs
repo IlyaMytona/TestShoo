@@ -1,20 +1,20 @@
-﻿using UnityEngine;
-
-namespace Test
+﻿namespace Test.Helper
 {
     public struct InfoCollision
     {
-        private readonly Vector3 _direction;
+        private readonly int _idAttacker;
+        private readonly int _idWeapon;
         private readonly float _damage;
 
-        public InfoCollision(float damage, Vector3 direction = default)
-        {
+        public InfoCollision(int idAttacker, int idWeapon, float damage)
+        {            
+            _idAttacker = idAttacker;
+            _idWeapon = idWeapon;
             _damage = damage;
-            _direction = direction;
         }
 
-        public Vector3 Direction => _direction;
-
+        public int IdAttacker => _idAttacker;
+        public int IdWeapon => _idWeapon;
         public float Damage => _damage;
     }
 }

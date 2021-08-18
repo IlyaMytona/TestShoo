@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5994583420228061936}
   - component: {fileID: 4593896862285150306}
   - component: {fileID: 5285946129706430247}
+  - component: {fileID: 676966354280215273}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -93,10 +94,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70bcbc61813378f4b93b7454521b7134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeToDestruct: 5
-  BaseDamage: 10
-  CurDamage: 10
-  Type: 2
+  AmmunitionSoData: {fileID: 11400000, guid: 70a15b1b0bd1f1c42840a647d0afb92c, type: 2}
+--- !u!135 &676966354280215273
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5461104056199150457}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6585420648893291224
 GameObject:
   m_ObjectHideFlags: 0

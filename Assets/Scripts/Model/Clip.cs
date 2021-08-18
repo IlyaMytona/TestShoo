@@ -1,4 +1,4 @@
-﻿namespace Test
+﻿namespace Test.Model
 {
     public struct Clip
     {

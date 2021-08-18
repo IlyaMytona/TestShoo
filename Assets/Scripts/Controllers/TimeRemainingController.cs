@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
+using Test.Controllers.TimeRemaining;
+using Test.Interface;
+using Test.GameServices;
 
 
-namespace Test
+namespace Test.Controllers
 {
     public sealed class TimeRemainingController : IExecute
     {

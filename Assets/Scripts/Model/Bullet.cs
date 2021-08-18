@@ -1,8 +1,9 @@
 ﻿using System;
+using Test.AmmunitionBullets;
 using UnityEngine;
 
 
-namespace Test
+namespace Test.Model
 {
     public sealed class Bullet : Ammunition, IDisposable
     {

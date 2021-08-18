@@ -1,8 +1,14 @@
-﻿namespace Test
+﻿using Test.Data;
+
+
+namespace Test.Interface
 {
     public interface IUnit
     {
-        IPlayerMovement mover {get;}
-        DamageReceiveData damageReceiveData { get; }
+        int InstanceID
+        {
+            get;
+        }
+        IPlayerMovement mover {get;}        
     }
 }

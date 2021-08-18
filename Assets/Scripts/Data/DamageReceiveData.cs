@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 
-namespace Test
+namespace Test.Data
 {
     [System.Serializable]
     public class DamageReceiveData

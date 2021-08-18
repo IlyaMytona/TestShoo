@@ -1,4 +1,4 @@
-﻿namespace Test
+﻿namespace Test.Interface
 {
     public interface ICleanUp
     {

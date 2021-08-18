@@ -1,4 +1,4 @@
-﻿namespace Test
+﻿namespace Test.Enum
 {
 	public enum MouseScrollWheel : byte
 	{

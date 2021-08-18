@@ -1,7 +1,11 @@
-﻿using UnityEngine;
+﻿using Test.AmmunitionBullets;
+using Test.Behaviour;
+using Test.Controllers.TimeRemaining;
+using Test.Interface;
+using UnityEngine;
 
 
-namespace Test
+namespace Test.Model
 {
     public abstract class Ammunition : IModel
     {
@@ -21,16 +25,19 @@ namespace Test
 
 
         #region Property
+
         public float Force { get; private set; }
         public GameObject GameObject { get; }
         public Transform Transform { get; }
         public AmmunitionBehaviour AmmunitionProviders { get; }
         public float CurDamage { get; }
+        public int IdAttacker { get; }
+        public int IdWeapon { get; }
         public float TimeToDestruct { get; }
         public float TimeToFire { get; }
-        public float MaxDistance { get; } = 5;
+        public float MaxDistance { get; } = 2;
         public bool IsActive { get; private set; }
-        //public Animator PlayerFireAnimation { get; private set; }
+        
         #endregion
 
 
@@ -43,10 +50,10 @@ namespace Test
             Transform = GameObject.transform;
             AmmunitionProviders = GameObject.GetComponent<AmmunitionBehaviour>();
 
-            TimeToDestruct = AmmunitionProviders.TimeToDestruct;
+            TimeToDestruct = AmmunitionProviders.AmmunitionSoData.TimeToDestruct;
             TimeRemaining = new TimeRemaining(DestroyAmmunition, TimeToDestruct);
 
-            CurDamage = AmmunitionProviders.CurDamage;
+            CurDamage = AmmunitionProviders.AmmunitionSoData.CurDamage;
             _contactOffSet = GameObject.GetComponent<Renderer>().bounds.extents.z;
             MaxDistance += _contactOffSet;            
         }

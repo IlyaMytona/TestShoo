@@ -2,7 +2,7 @@
 using UnityEngine;
 
 
-namespace Test
+namespace Test.Model
 {
     public class UnitStats : MonoBehaviour
     {

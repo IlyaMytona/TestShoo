@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 
-namespace Test
+namespace Test.Interface
 {
     public interface IModel
     {

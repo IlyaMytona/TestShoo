@@ -1,6 +1,14 @@
-﻿namespace Test
+﻿using System;
+using Test.Enum;
+using Test.Interface;
+using Test.UI;
+using Test.Model;
+using Test.GameServices;
+
+
+namespace Test.Controllers
 {
-    public sealed class WeaponController : BaseController
+    public sealed class WeaponController : BaseController, IDisposable
     {
         #region Private Data
 
@@ -14,15 +22,16 @@
 
         public override void On(params IModel[] weapon)
         {            
-            //if (IsActive) return;
+            if (IsActive) return;
             base.On(weapon[0]);
             _weapon = weapon[0] as Weapon;
             
             if (_weapon == null) return;
+            _weapon.CalculateBulletsAndClipsEvent += RecalculateClipsInUi;
             _weapon.IsVisible = true;
 
-            //UiInterface.WeaponUiText.SetActive(true);
-            //UiInterface.WeaponUiText.ShowData(_weapon.Clip.CountAmmunition, _weapon.CountClip);
+            UiInterface.WeaponUiText.SetActive(true , _weapon._weaponIcon);
+            RecalculateClipsInUi();            
         }
 
         public override void Off()
@@ -30,24 +39,30 @@
             if (!IsActive) return;
             base.Off();
             _weapon.IsVisible = false;
+            UiInterface.WeaponUiText.SetActive(false, _weapon._weaponIcon);
             _weapon = null;
-            //UiInterface.WeaponUiText.SetActive(false);
+            //_weapon.UpdateProgressEvent -= RecalculateClipInUi;
         }
 
         public void ReloadClip()
         {
             if (_weapon == null) return;
 
-
             _weapon.ReloadClip();
-            //UiInterface.WeaponUiText.ShowData(_weapon.Clip.CountAmmunition, _weapon.CountClip);
+            RecalculateClipsInUi();
         }
 
         public void Fire()
         {
             if (_weapon == null) return;
+
             _weapon.Fire();
-            //UiInterface.WeaponUiText.ShowData(_weapon.Clip.CountAmmunition, _weapon.CountClip);
+            RecalculateClipsInUi();
+        }
+
+        public void RecalculateClipsInUi()
+        {
+            UiInterface.WeaponUiText.ShowData(_weapon.Clip.CountAmmunition, _weapon.CountClip);
         }
 
         public void SelectWithKeyWeapon(int i)
@@ -106,6 +121,11 @@
                 _selectIndexWeapon--;
             }
             return SelectWeapon(_selectIndexWeapon);
+        }
+
+        public void Dispose()
+        {
+            _weapon.CalculateBulletsAndClipsEvent -= RecalculateClipsInUi;
         }
 
         #endregion
