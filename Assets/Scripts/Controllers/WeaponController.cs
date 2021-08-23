@@ -30,7 +30,7 @@ namespace Test.Controllers
             _weapon.CalculateBulletsAndClipsEvent += RecalculateClipsInUi;
             _weapon.IsVisible = true;
 
-            UiInterface.WeaponUiText.SetActive(true , _weapon._weaponIcon);
+            UiInterface.WeaponUiText.SetActive(true , _weapon.WeaponIcon);
             RecalculateClipsInUi();            
         }
 
@@ -39,7 +39,7 @@ namespace Test.Controllers
             if (!IsActive) return;
             base.Off();
             _weapon.IsVisible = false;
-            UiInterface.WeaponUiText.SetActive(false, _weapon._weaponIcon);
+            UiInterface.WeaponUiText.SetActive(false, _weapon.WeaponIcon);
             _weapon = null;
             //_weapon.UpdateProgressEvent -= RecalculateClipInUi;
         }

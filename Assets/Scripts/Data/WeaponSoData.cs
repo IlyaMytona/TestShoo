@@ -10,6 +10,7 @@ public class WeaponSoData : ScriptableObject
     public float RechergeTime = 0.2f;
     public int CountClip = 99999;
     public float Range = 100f;
+    public int PelletsCount = 6;
 
     public void SetData(AmmunitionType type)
     {
@@ -18,12 +19,14 @@ public class WeaponSoData : ScriptableObject
             WeaponIcon = Resources.Load<Sprite>("Sprites/Gun");
             Force = 300.0f;
             RechergeTime = 0.2f;
+            PelletsCount = 0;
         }        
         if (type == AmmunitionType.FractionBullet)
         {
             WeaponIcon = Resources.Load<Sprite>("Sprites/Shotgun");
             Force = 400.0f;
-            RechergeTime = 2.0f;
+            RechergeTime = 1.5f;
+            PelletsCount = 6;
         }
     }
 }

@@ -2,7 +2,8 @@
 {
 	public enum MouseButton : byte
 	{
-		LeftButton,
-		RightButton
+		LeftButton = 0,
+		RightButton = 1,
+		CenterButton = 1
 	}
 }

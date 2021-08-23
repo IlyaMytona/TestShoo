@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using Test.GameServices;
+
 
 namespace Test.UI
 {
@@ -56,22 +56,10 @@ namespace Test.UI
             _textEndGame.gameObject.SetActive(isActive);
             if (isActive)
             {                
-                _textEndGame.text = "Congratulations! You Loser!";
+                _textEndGame.text = "Congratulations! You Lose!";
             }
         }
-
-        /*public void GetEndLevelText()
-        {
-            if (Services.Instance.LevelService.IsTargetDestroed == true)
-            {
-                _textEndGame.text = "Congratulations!You Loser!";
-            }
-            if (Services.Instance.LevelService.ActiveEnemies.Count <= 0)
-            {
-                _textEndGame.text = "Congratulations!";
-            }            
-        }*/
-
+        
         #endregion
     }
 }

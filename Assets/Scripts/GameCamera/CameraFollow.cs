@@ -22,7 +22,7 @@ namespace Test.GameCamera
             {
                 _target = GameObject.FindGameObjectWithTag("Player");
             }
-            else //if (target != null)
+            else
             {
                 Vector3 desiredPosition = _target.transform.position + offset;
                 Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, damping);

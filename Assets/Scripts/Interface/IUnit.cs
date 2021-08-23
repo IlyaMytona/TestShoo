@@ -8,7 +8,6 @@ namespace Test.Interface
         int InstanceID
         {
             get;
-        }
-        IPlayerMovement mover {get;}        
+        }          
     }
 }

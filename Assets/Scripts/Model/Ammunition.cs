@@ -1,6 +1,6 @@
 ﻿using Test.AmmunitionBullets;
 using Test.Behaviour;
-using Test.Controllers.TimeRemaining;
+using Test.Controllers.TimeRemainings;
 using Test.Interface;
 using UnityEngine;
 

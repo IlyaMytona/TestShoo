@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Test.Controllers.TimeRemaining;
+using Test.Controllers.TimeRemainings;
 using Test.Interface;
 
 namespace Test.Controllers

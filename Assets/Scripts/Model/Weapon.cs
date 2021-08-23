@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Test.AmmunitionBullets;
 using Test.Behaviour;
-using Test.Controllers.TimeRemaining;
+using Test.Controllers.TimeRemainings;
 using Test.Helper;
 using Test.Interface;
 using UnityEngine;
@@ -21,12 +21,12 @@ namespace Test.Model
         private int _minCountAmmunition = 20;
         protected readonly ITimeRemaining _timeRemaining;
         protected readonly WeaponBehaviour _weaponBehaviour;
-        public Sprite _weaponIcon;
         protected Ray _shootRay = new Ray();
         protected RaycastHit _shootHit;
         protected int _shootableMask;
         protected ParticleSystem _gunParticles;
-        public float _range;
+        protected float _range;
+        protected int _pelletsCount;
         protected LineRenderer _gunLine;
         protected LineRenderer[] _shotGunLine;
         protected Light _gunLight;
@@ -40,13 +40,15 @@ namespace Test.Model
         protected Transform _playerTransform;
         private int _idAttacker;
         private int _idWeapon;
+
         #endregion
 
 
         #region Fields
 
         public event Action CalculateBulletsAndClipsEvent;
-        public Clip Clip;
+        public Clip Clip; 
+        public Sprite WeaponIcon;
 
         #endregion
 
@@ -85,10 +87,11 @@ namespace Test.Model
             Transform = weaponObject.transform;
             _weaponBehaviour = GameObject.GetComponent<WeaponBehaviour>();
 
-            _weaponIcon = _weaponBehaviour.WeaponIcon;
+            WeaponIcon = _weaponBehaviour.WeaponIcon;
             _shootableMask = _weaponBehaviour.ShootableMask;
             _gunParticles = _weaponBehaviour.GunParticles;
             _range = _weaponBehaviour.Range;
+            _pelletsCount = _weaponBehaviour.PelletsCount;
             _gunLine = _weaponBehaviour.GunLine;
             _shotGunLine = _weaponBehaviour.ShotGunLine;
             _gunLight = _weaponBehaviour.GunLight;
@@ -123,7 +126,7 @@ namespace Test.Model
         {
             if (CountClip <= 0) return;
             _isReloading = true;
-            _weaponBehaviour.Animator.SetTrigger("Reload");
+            //_weaponBehaviour.Animator.SetTrigger("Reload");
             DoReload();            
         }
 

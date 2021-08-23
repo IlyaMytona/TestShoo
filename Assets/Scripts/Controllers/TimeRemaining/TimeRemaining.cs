@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace Test.Controllers.TimeRemaining
+namespace Test.Controllers.TimeRemainings
 {
     public sealed class TimeRemaining : ITimeRemaining
     {

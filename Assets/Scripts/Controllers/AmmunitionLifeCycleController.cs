@@ -1,7 +1,7 @@
 ﻿using Test.Interface;
 using UnityEngine;
 using Test.GameServices;
-using Test.Controllers.TimeRemaining;
+using Test.Controllers.TimeRemainings;
 
 
 namespace Test.Controllers

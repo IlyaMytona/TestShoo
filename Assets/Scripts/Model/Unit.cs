@@ -1,5 +1,4 @@
 ﻿using System;
-using Test.Data;
 using Test.Enum;
 using Test.Interface;
 using UnityEngine;
@@ -11,25 +10,41 @@ namespace Test.Model
     {
         #region Private Data
 
-        private IPlayerMovement _movement;
         protected bool _isDie;
+        protected float _maxHp;        
 
         #endregion
-        
+
 
         #region Fields
 
         public event Action EventOnDie;
         public event Action EventOnRevive;
-        
+
         #endregion
 
 
         #region Properties
 
-        public IPlayerMovement mover { get { return _movement;} set { _movement = value; }}
-        public Fraction fraction { get; protected set; }
+        public float MaxHp => _maxHp;
+        public Fraction Fraction { get; protected set; }
         public int InstanceID { get; protected set; }
+        public Transform Transform { get; protected set; }
+        public bool IsVisible
+        {
+            set
+            {
+                Transform = GetComponent<Transform>();
+                foreach (Transform d in Transform)
+                {
+                    var tempRenderer = d.GetComponent<Renderer>();
+                    if (tempRenderer)
+                    {
+                        tempRenderer.enabled = value;
+                    }
+                }
+            }
+        }
 
         #endregion
 
@@ -38,20 +53,20 @@ namespace Test.Model
 
         protected virtual void Awake()
         {
-            InstanceID = GetInstanceID();
+            InstanceID = GetInstanceID();            
         }
 
         #endregion
 
 
         #region Methods
-        protected virtual void Die()
+        public virtual void Die()
         {
             _isDie = true;
             EventOnDie?.Invoke();            
         }
 
-        protected virtual void Revive()
+        public virtual void Revive()
         {
             _isDie = false;
             EventOnRevive?.Invoke();            

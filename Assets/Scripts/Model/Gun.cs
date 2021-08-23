@@ -1,5 +1,5 @@
 ﻿using Test.AmmunitionBullets;
-using Test.Controllers.TimeRemaining;
+using Test.Controllers.TimeRemainings;
 using UnityEngine;
 
 
@@ -13,11 +13,10 @@ namespace Test.Model
             if (!_isReadyToShoot) return;
             if (_isReloading) return;
             if (Clip.CountAmmunition <= 0) return;
-            _weaponBehaviour.Animator.SetTrigger("Fire");
             var tempAmmunition = _poolObject.GetObject(_weaponBehaviour.Barrel.position, _weaponBehaviour.Barrel.rotation);            
             if (tempAmmunition == null) return;            
             
-            _gunAudioSource.Play(); //PlayOneShot
+            _gunAudioSource.Play();
             _gunLight.enabled = true;
 
             _gunParticles.Stop();

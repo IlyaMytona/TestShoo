@@ -44,7 +44,7 @@ namespace Test.AmmunitionBullets
             }
         }
 
-        public Ammunition GetObject(Vector3 position, Quaternion rotation) //, float time
+        public Ammunition GetObject(Vector3 position, Quaternion rotation)
         {
             var result = PoolObjectsAmmunition.Values.FirstOrDefault(ammunition => !ammunition.GameObject.activeSelf);
             if (result == null)

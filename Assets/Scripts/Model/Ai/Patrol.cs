@@ -10,13 +10,7 @@ namespace Test.Model.Ai
         private static Vector3[] _listPoint;
         private static int _indexCurPoint;
         private static int _minDistance = 15;
-        private static int _maxDistance = 80;
-
-        static Patrol()
-        {
-            var tempPoints = Object.FindObjectsOfType<DestroyPoint>();
-            _listPoint = tempPoints.Select(o => o.transform.position).ToArray();
-        }
+        private static int _maxDistance = 80;                
 
         public static Vector3 GenerateRandomPoint(Transform agent, bool isRandom = true)
 		{

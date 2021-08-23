@@ -2,8 +2,10 @@ using System.Collections.Generic;
 using Test.Behaviour;
 using Test.Controllers;
 using Test.Model;
+using Test.Throw;
 using Test.UI;
 using UnityEngine;
+
 
 namespace Test.GameServices
 {
@@ -28,6 +30,7 @@ namespace Test.GameServices
         public Vector3[] SpawnPoints => _spawnPoints;
         public WeaponController WeaponController { get; set; }
         public UiInterface UiInterface { get; set; }
+        public ThrowGrenadesManager ThrowGrenadesManager { get; set; }
 
         #endregion
 

@@ -14,7 +14,7 @@ namespace Test.Controllers
             var weaponFactory = new WeaponFactory();
 
             var poolBulletAmmunition = new PoolObjectAmmunition(AmmunitionType.Bullet);
-            var gun = weaponFactory.CreateGun(poolBulletAmmunition);//
+            var gun = weaponFactory.CreateGun(poolBulletAmmunition);
             gun.IsVisible = false;
             Services.Instance.LevelService.Weapons[0] = gun;
             var bulletDictionary = poolBulletAmmunition.PoolObjectsAmmunition;

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 
 
-namespace Test.Controllers.TimeRemaining
+namespace Test.Controllers.TimeRemainings
 {
     public static partial class TimeRemainingExtensions
     {

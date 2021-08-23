@@ -7,8 +7,8 @@ namespace Test.UI
         #region Private Data
 
         private Transform _cameraTransform;
-        private Transform _CanvasDisplayTransform;
-        private float size;
+        private Transform _сanvasDisplayTransform;
+        private float _size;
 
         #endregion
 
@@ -26,15 +26,15 @@ namespace Test.UI
         private void Awake()
         {
             _cameraTransform = Camera.main.transform;
-            _CanvasDisplayTransform = transform;
+            _сanvasDisplayTransform = transform;
         }
 
         private void LateUpdate()
         {
-            transform.LookAt(_CanvasDisplayTransform.position + _cameraTransform.rotation * Vector3.forward, _cameraTransform.rotation * Vector3.up);
+            transform.LookAt(_сanvasDisplayTransform.position + _cameraTransform.rotation * Vector3.forward, _cameraTransform.rotation * Vector3.up);
             if (!ScaleWithDistance) return;
-            size = (_cameraTransform.position - transform.position).magnitude;
-            transform.localScale = Vector3.one * (size * (ScaleMultiplier / 100f));
+            _size = (_cameraTransform.position - transform.position).magnitude;
+            transform.localScale = Vector3.one * (_size * (ScaleMultiplier / 100f));
         }
 
         #endregion

@@ -2,7 +2,7 @@
 using Test.Interface;
 
 
-namespace Test.Controllers.TimeRemaining
+namespace Test.Controllers.TimeRemainings
 {
     public sealed class TimeRemainingCleanUp : ICleanUp
     {      

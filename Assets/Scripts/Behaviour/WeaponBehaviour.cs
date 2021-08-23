@@ -1,5 +1,4 @@
-﻿using System;
-using Test.Enum;
+﻿using Test.Enum;
 using Test.Model;
 using UnityEngine;
 
@@ -15,6 +14,7 @@ namespace Test.Behaviour
         public float Force = 400.0f;
         public float RechergeTime = 0.2f;
         public int CountClip = 99999;
+        public int PelletsCount = 6;
         public float Range = 100f;
         public Transform Barrel;
 
@@ -23,7 +23,6 @@ namespace Test.Behaviour
         public LineRenderer GunLine;
         public LineRenderer[] ShotGunLine;
         public Light GunLight;
-        public Animator Animator;
         public AudioSource AudioSource;
         public Transform PlayerTransform;
         public Unit Unit;
@@ -35,6 +34,7 @@ namespace Test.Behaviour
             Force = _weaponData.Force;
             RechergeTime = _weaponData.RechergeTime;
             CountClip = _weaponData.CountClip;
+            PelletsCount = _weaponData.PelletsCount;
             Range = _weaponData.Range;
 
             ShootableMask = LayerMask.GetMask("Shootable");
@@ -43,7 +43,6 @@ namespace Test.Behaviour
             GunLine = Barrel.GetComponent<LineRenderer>();
             ShotGunLine = GetComponentsInChildren<LineRenderer>();
             GunLight = Barrel.GetComponent<Light>();
-            Animator = GetComponentInParent<Animator>();
             PlayerTransform = GetComponentInParent<Transform>();
             Unit = GetComponentInParent<Unit>();
         }

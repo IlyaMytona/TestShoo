@@ -3,24 +3,20 @@ using System;
 using Cysharp.Threading.Tasks;
 using System.Collections;
 using Test.AmmunitionBullets;
-using Test.Controllers.TimeRemaining;
+using Test.Controllers.TimeRemainings;
 
 
 namespace Test.Model
 {
     public sealed class Shotgun : Weapon
     {
-        private int pelletsCount = 6;        
         private float dispersionValue = 0.06f;
         public Shotgun(GameObject gameObject, PoolObjectAmmunition poolObject) : base(gameObject, poolObject) { }
-        public override async void Fire()
+        public override void Fire()
         {
             if (!_isReadyToShoot) return;
             if (_isReloading) return;
-            if (Clip.CountAmmunition <= 0) return;
-            _weaponBehaviour.Animator.SetTrigger("FireShotgun");
-            await WaitUntilMiddleOfAnimation();
-            
+            if (Clip.CountAmmunition <= 0) return;            
             var tempAmmunition = _poolObject.GetObject(_weaponBehaviour.Barrel.position, _weaponBehaviour.Barrel.rotation);
             _isReadyToShoot = false;
 
@@ -36,8 +32,8 @@ namespace Test.Model
             _shootRay.direction = _weaponBehaviour.Barrel.forward;
 
             //build an array of rays
-            Ray[] rays = new Ray[pelletsCount];
-            for (int i = 0; i < pelletsCount; i++)
+            Ray[] rays = new Ray[_pelletsCount];
+            for (int i = 0; i < _pelletsCount; i++)
             {
                 //generate a random spread for the hitscan shotgun blast
                 float randomSpreadX = UnityEngine.Random.Range(-dispersionValue, dispersionValue);
@@ -79,11 +75,5 @@ namespace Test.Model
             _isReadyToShoot = false;
             _timeRemaining.AddTimeRemaining(_weaponBehaviour.RechergeTime);
         }
-
-        private IEnumerator WaitUntilMiddleOfAnimation()
-        {
-            yield return UniTask.Delay(TimeSpan.FromSeconds(2)).ToCoroutine();
-        }
-        
     }
 }

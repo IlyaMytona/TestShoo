@@ -9,7 +9,7 @@ namespace Test.GameServices
     {
         private Dictionary<int, IUnit> _unitsByID = new Dictionary<int, IUnit>();
 
-        public event Action onCreatedUnitEvent;
+        public event Action OnCreatedUnitEvent;
         public event Action OnDestroyUnitEvent;
         public Dictionary<int, IUnit> UnitsDictionary
         {
@@ -28,7 +28,7 @@ namespace Test.GameServices
             else
                 _unitsByID[unitID] = unit;
             
-            onCreatedUnitEvent?.Invoke();
+            OnCreatedUnitEvent?.Invoke();
 
         }
 
