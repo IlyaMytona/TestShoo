@@ -219,40 +219,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09159396492575e48b6769e2dbdc7fda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ThrowInput:
-    UseInput: 1
-    _isAxisInUse: 0
-    _keyboard: Mouse0
-    _keyboardAxis: 0
-    _mobile: RB
-    _mobileAxis: 0
-    _keyboardAxisInvert: 0
-    _mobileAxisInvert: 0
-    TimeButtonWasPressed: 0
-    LastTimeTheButtonWasPressed: 0
-    InButtomTimer: 0
-  AimThrowInput:
-    UseInput: 1
-    _isAxisInUse: 0
-    _keyboard: G
-    _keyboardAxis: 0
-    _mobile: LB
-    _mobileAxis: 0
-    _keyboardAxisInvert: 0
-    _mobileAxisInvert: 0
-    TimeButtonWasPressed: 0
-    LastTimeTheButtonWasPressed: 0
-    InButtomTimer: 0
-  IsAiming: 0
-  joystickHorizontalAxis: RightAnalogHorizontal
-  joystickVerticalAxis: RightAnalogVertical
-  joystickSensitivity: 25
   _throwStartPoint: {fileID: 8119880992766546592}
   _throwEnd: {fileID: 5603342937316975910}
   _grenade: {fileID: 5446364, guid: 6b2d8a727c9ac284aa92b3076e75c504, type: 3}
   _obstacles:
     serializedVersion: 2
     m_Bits: 1792
+  IsAiming: 0
+  InThrow: 0
+  IsThrowInput: 0
+  IsInitialize: 0
 --- !u!114 &4487164427216957515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +238,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1589857371128429183}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45217be913629a14eaee4e840c4ba114, type: 3}
+  m_Script: {fileID: 11500000, guid: ce37402e23826a24c9948f2f08c66512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _hpSlider: {fileID: 4072496110036386981}

@@ -1,7 +1,4 @@
-﻿using Test.Data;
-
-
-namespace Test.Interface
+﻿namespace Test.Interface
 {
     public interface IUnit
     {

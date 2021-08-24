@@ -1,12 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Test.Controllers;
 using Test.GameServices;
 using Test.Helper;
 using UnityEngine;
-#if MOBILE_INPUT
-using UnityStandardAssets.CrossPlatformInput;
-#endif
+
 
 namespace Test.Throw
 {

@@ -1,6 +1,5 @@
 ﻿using System;
 using Test.Helper;
-using Test.Interface;
 
 
 namespace Test

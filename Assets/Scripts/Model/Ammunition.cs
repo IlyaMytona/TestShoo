@@ -30,7 +30,7 @@ namespace Test.Model
         public GameObject GameObject { get; }
         public Transform Transform { get; }
         public AmmunitionBehaviour AmmunitionProviders { get; }
-        public float CurDamage { get; }
+        public float CurrentDamage { get; }
         public int IdAttacker { get; }
         public int IdWeapon { get; }
         public float TimeToDestruct { get; }
@@ -53,7 +53,7 @@ namespace Test.Model
             TimeToDestruct = AmmunitionProviders.AmmunitionSoData.TimeToDestruct;
             TimeRemaining = new TimeRemaining(DestroyAmmunition, TimeToDestruct);
 
-            CurDamage = AmmunitionProviders.AmmunitionSoData.CurDamage;
+            CurrentDamage = AmmunitionProviders.AmmunitionSoData.CurrentDamage;
             _contactOffSet = GameObject.GetComponent<Renderer>().bounds.extents.z;
             MaxDistance += _contactOffSet;            
         }

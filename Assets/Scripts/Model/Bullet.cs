@@ -34,8 +34,7 @@ namespace Test.Model
 
         public void Dispose()
         {
-            _poolObject.Dispose();
-            
+            _poolObject.Dispose();            
         }
     }
 }

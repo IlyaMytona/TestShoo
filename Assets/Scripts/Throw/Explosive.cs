@@ -113,8 +113,8 @@ namespace Test.Throw
             if (distance > _maxExplosionRadius) distance = _maxExplosionRadius;
 
             var distanceLimit = _maxExplosionRadius - _minExplosionRadius;
-            var distanceCalc = Mathf.Clamp(distance - _minExplosionRadius, 0, distanceLimit);
-            var distanceResult = Mathf.Clamp(distanceLimit - (distanceCalc), 0, distanceLimit);
+            var minimumDistanceCalculated = Mathf.Clamp(distance - _minExplosionRadius, 0, distanceLimit);
+            var distanceResult = Mathf.Clamp(distanceLimit - (minimumDistanceCalculated), 0, distanceLimit);
             var multiple = ((distanceResult / distanceLimit) * 100f) * 0.01f;
             return value * multiple;
         }        

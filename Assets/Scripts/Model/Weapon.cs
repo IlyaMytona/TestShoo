@@ -99,7 +99,6 @@ namespace Test.Model
             _playerTransform = _weaponBehaviour.PlayerTransform;
             
             _poolObject = poolObject;
-            //_timeRemaining = new TimeRemaining(ReadyShoot, _weaponBehaviour.RechergeTime);
             _timeRemaining = new TimeRemaining(() => ReadyShoot(_shotGunLine.Length), _weaponBehaviour.RechergeTime);
 
             Initialization();
@@ -162,7 +161,7 @@ namespace Test.Model
 
             if (tempObj != null)
             {
-                tempObj.SetDamage(new InfoCollision(_idAttacker, _idWeapon, ammunition.CurDamage));
+                tempObj.SetDamage(new InfoCollision(_idAttacker, _idWeapon, ammunition.CurrentDamage));
             }
 
             ammunition.DestroyAmmunition();

@@ -7,6 +7,7 @@ TagManager:
   - Spawn
   - PanelEndLevel
   - Zombie
+  - Joystick
   layers:
   - Default
   - TransparentFX

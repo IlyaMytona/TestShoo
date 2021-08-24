@@ -36,9 +36,7 @@ namespace Test.Controllers
             _executeControllers = new List<IExecute>();
             _executeControllers.Add(new TimeRemainingController());
             _executeControllers.Add(new InputController());
-            _executeControllers.Add(new AmmunitionLifeCycleController());
-            _executeControllers.Add(new AmmunitionApplyDamageController());
-            
+            _executeControllers.Add(new AmmunitionLifeCycleController());            
 
             _cleanUps = new List<ICleanUp>();
             _cleanUps.Add(new TimeRemainingCleanUp());

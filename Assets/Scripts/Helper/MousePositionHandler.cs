@@ -1,6 +1,6 @@
 ﻿using Test.Controllers;
 using UnityEngine;
-#if MOBILE_INPUT
+#if UNITY_IOS || UNITY_ANDROID
 using UnityStandardAssets.CrossPlatformInput;
 #endif
 
@@ -9,9 +9,9 @@ namespace Test.Helper
 {
     public class MousePositionHandler : MonoBehaviour
     {
-#if MOBILE_INPUT
+#if UNITY_IOS || UNITY_ANDROID
         private Vector2 _joystickMousePos;
-        private float _joystickSensitivity = 25f;
+        private float _joystickSensitivity = 15.0f;
 #endif
         public Camera mainCamera;
         protected static MousePositionHandler _instance;
@@ -40,10 +40,10 @@ namespace Test.Helper
                     case InputDevice.MouseKeyboard:
                         return Input.mousePosition;                    
                     case InputDevice.Mobile:
-#if MOBILE_INPUT
-                        _joystickMousePos.x += CrossPlatformInputManager.GetAxis("RightAnalogHorizontal") * _joystickSensitivity;
+#if UNITY_IOS || UNITY_ANDROID
+                        _joystickMousePos.x += CrossPlatformInputManager.GetAxis("Mouse X") * _joystickSensitivity;
                         _joystickMousePos.x = Mathf.Clamp(_joystickMousePos.x, -(Screen.width * 0.5f), (Screen.width * 0.5f));
-                        _joystickMousePos.y += CrossPlatformInputManager.GetAxis("RightAnalogVertical") * _joystickSensitivity;
+                        _joystickMousePos.y += CrossPlatformInputManager.GetAxis("Mouse Y") * _joystickSensitivity;
                         _joystickMousePos.y = Mathf.Clamp(_joystickMousePos.y, -(Screen.height * 0.5f), (Screen.height * 0.5f));
                         var mobileScreenCenter = new Vector2(Screen.width * 0.5f, Screen.height * 0.5f);
                         var mobileResult = _joystickMousePos + mobileScreenCenter;

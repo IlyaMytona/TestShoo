@@ -10,7 +10,7 @@ namespace Test.Behaviour
 
         private void Start()
         {
-            AmmunitionSoData.CurDamage = AmmunitionSoData.BaseDamage;            
+            AmmunitionSoData.CurrentDamage = AmmunitionSoData.BaseDamage;            
         }        
     }
 }

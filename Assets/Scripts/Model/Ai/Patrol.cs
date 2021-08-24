@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 
@@ -7,7 +6,7 @@ namespace Test.Model.Ai
 {
     public class Patrol
     {
-        private static Vector3[] _listPoint;
+        private static Vector3[] _listPoint = new Vector3[10];
         private static int _indexCurPoint;
         private static int _minDistance = 15;
         private static int _maxDistance = 80;                

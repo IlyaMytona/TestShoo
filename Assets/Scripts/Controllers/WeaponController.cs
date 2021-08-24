@@ -40,8 +40,7 @@ namespace Test.Controllers
             base.Off();
             _weapon.IsVisible = false;
             UiInterface.WeaponUiText.SetActive(false, _weapon.WeaponIcon);
-            _weapon = null;
-            //_weapon.UpdateProgressEvent -= RecalculateClipInUi;
+            _weapon = null;            
         }
 
         public void ReloadClip()

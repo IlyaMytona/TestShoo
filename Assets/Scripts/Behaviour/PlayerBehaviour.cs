@@ -1,5 +1,4 @@
-﻿using System;
-using Test.Controllers.TimeRemainings;
+﻿using Test.Controllers.TimeRemainings;
 using Test.GameServices;
 using Test.Helper;
 using Test.Interface;
@@ -22,13 +21,12 @@ namespace Test.Behaviour
         private CharacterController _characterController;
         private Vector3 _respawnPosition;
         private ITimeRemaining _timeRemaining;        
-        //private int _reviveCounts = 5;
         private float _reviveDelay = 5.0f;
         private float _playerHp;
         private float _speed;
         private float _jumpForce;
         private float _gravity;
-        private float _yVelocity;        
+        private float _yVelocity;
 
         #endregion
 
@@ -65,7 +63,7 @@ namespace Test.Behaviour
 
         private void LookRotation()
         {
-            Vector3 MousePos = Input.mousePosition; //TODO //Vector3 MousePos = MousePositionHandler.Instance.MousePosition
+            Vector3 MousePos = MousePositionHandler.Instance.MousePosition;
             //Convert the player’s coordinates from world to screen
             Vector3 CharacterPos = Camera.main.WorldToScreenPoint(transform.position);
             var VectorToTarget = MousePos - CharacterPos;
@@ -82,10 +80,23 @@ namespace Test.Behaviour
             _characterController.Move(movement);
             if (!_throwManager.IsAiming)
             {
+#if UNITY_STANDALONE
                 LookRotation();
-            }            
+#endif
+            }
         }
-        
+
+#if UNITY_IOS || UNITY_ANDROID
+        public void Rotate(float x, float y)
+        {
+            if (!_throwManager.IsAiming)
+            {
+                if (x != 0f || y != 0f)
+                    transform.eulerAngles = new Vector3(0, Mathf.Atan2(y, -x) * 180 / Mathf.PI - 90, 0);
+            }
+                
+        }
+#endif
         public override void Die()
         {
             base.Die();
@@ -93,17 +104,10 @@ namespace Test.Behaviour
             Services.Instance.LevelService.UiInterface.WeaponUiText.gameObject.SetActive(false);
             Services.Instance.LevelService.SetPanelEndLevelActive(true);
             _characterController.enabled = false;
-            
-            //_reviveCounts--;
         }        
 
         public override void Revive()
-        {
-            /*if (_reviveCounts == 0)
-            {
-                Destroy(gameObject);
-                return;
-            }*/
+        {            
             base.Revive();
             Services.Instance.LevelService.SetPanelEndLevelActive(false);
             Services.Instance.LevelService.UiInterface.WeaponUiText.gameObject.SetActive(true);
@@ -122,6 +126,6 @@ namespace Test.Behaviour
             Services.Instance.UnitsHolderService.OnDestroyUnit(this);
         }       
 
-        #endregion
+#endregion
     }
 }

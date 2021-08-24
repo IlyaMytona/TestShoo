@@ -59,6 +59,21 @@ namespace Test.AmmunitionBullets
             return result;
         }
 
+        public Ammunition GetObject(Vector3 position, Vector3 direction)
+        {
+            var result = PoolObjectsAmmunition.Values.FirstOrDefault(ammunition => !ammunition.GameObject.activeSelf);
+            if (result == null)
+            {
+                InitializePool();
+                GetObject(position, direction);
+                return null;
+            }
+            result.Transform.position = position;
+            result.Transform.rotation = Quaternion.LookRotation(direction);
+            result.SetActive(true);
+            return result;
+        }
+
         public void ReturnToPool(int hash)
         {            
             var ammunition = PoolObjectsAmmunition[hash];

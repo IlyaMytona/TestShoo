@@ -331,7 +331,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyBulletPrefab: {fileID: 179685788186196529, guid: 7d7054cd21b3dc04d870328c12f62feb,
     type: 3}
-  Hp: 100
   MaxHps: 100
   speed: 50
   Damage: 25
@@ -401,7 +400,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1943233206895204642}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45217be913629a14eaee4e840c4ba114, type: 3}
+  m_Script: {fileID: 11500000, guid: ce37402e23826a24c9948f2f08c66512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _hpSlider: {fileID: 2959094869810584313}

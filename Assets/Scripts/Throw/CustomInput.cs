@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
-#if MOBILE_INPUT
+#if UNITY_IOS || UNITY_ANDROID
 using UnityStandardAssets.CrossPlatformInput;
 #endif
 
@@ -26,9 +26,13 @@ namespace Test.Controllers
                 }
                 return _instance;
             }
-        }       
+        }
 
+#if UNITY_STANDALONE
         private InputDevice _inputType = InputDevice.MouseKeyboard;
+#elif UNITY_IOS || UNITY_ANDROID
+        private InputDevice _inputType = InputDevice.Mobile;
+#endif
         [HideInInspector]
         public InputDevice InputDevice
         {
@@ -42,13 +46,13 @@ namespace Test.Controllers
 
         private bool IsMobileInput()
         {
-#if UNITY_EDITOR && UNITY_MOBILE
+#if UNITY_EDITOR && UNITY_IOS || UNITY_ANDROID
             if (EventSystem.current.IsPointerOverGameObject() && Input.GetMouseButtonDown(0))
             {
                 return true;
             }
-		
-#elif MOBILE_INPUT
+
+#elif UNITY_IOS || UNITY_ANDROID
             if (EventSystem.current.IsPointerOverGameObject() || (Input.touches.Length > 0))
                 return true;
 #endif
@@ -57,7 +61,7 @@ namespace Test.Controllers
 
         private bool IsMouseKeyboard()
         {
-#if MOBILE_INPUT
+#if UNITY_IOS || UNITY_ANDROID
             return false;
 #else
             // mouse & keyboard buttons
@@ -206,7 +210,7 @@ namespace Test.Controllers
             // mobile
             if (_inputDevice == InputDevice.Mobile)
             {
-#if MOBILE_INPUT
+#if UNITY_IOS || UNITY_ANDROID
                 if (CrossPlatformInputManager.GetButton(this.ButtonName))
 #endif
                     return true;
@@ -235,7 +239,7 @@ namespace Test.Controllers
             // mobile
             if (_inputDevice == InputDevice.Mobile)
             {
-#if MOBILE_INPUT
+#if UNITY_IOS || UNITY_ANDROID
                 if (CrossPlatformInputManager.GetButtonDown(this.ButtonName))
 #endif
                     return true;
@@ -266,10 +270,10 @@ namespace Test.Controllers
             // mobile
             if (_inputDevice == InputDevice.Mobile)
             {
-#if MOBILE_INPUT
+#if UNITY_IOS || UNITY_ANDROID
                 if (CrossPlatformInputManager.GetButtonUp(this.ButtonName))
 #endif
-                    return true;
+                return true;
             }
             // keyboard/mouse
             else if (_inputDevice == InputDevice.MouseKeyboard)
@@ -295,7 +299,7 @@ namespace Test.Controllers
             // mobile
             if (_inputDevice == InputDevice.Mobile)
             {
-#if MOBILE_INPUT
+#if UNITY_IOS || UNITY_ANDROID
                 return CrossPlatformInputManager.GetAxis(this.ButtonName);
 #endif
             }
@@ -314,7 +318,7 @@ namespace Test.Controllers
             // mobile
             if (_inputDevice == InputDevice.Mobile)
             {
-#if MOBILE_INPUT
+#if UNITY_IOS || UNITY_ANDROID
                 return CrossPlatformInputManager.GetAxisRaw(this.ButtonName);
 #endif
             }

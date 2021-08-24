@@ -11,7 +11,7 @@ namespace Test.Behaviour
         public AmmunitionType AmmunitionType;
 
         public Sprite WeaponIcon;
-        public float Force = 400.0f;
+        public float Force = 50.0f;
         public float RechergeTime = 0.2f;
         public int CountClip = 99999;
         public int PelletsCount = 6;

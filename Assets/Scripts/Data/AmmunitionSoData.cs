@@ -7,6 +7,6 @@ public class AmmunitionSoData : ScriptableObject
 {
     public float TimeToDestruct = 5;
     public float BaseDamage = 10;
-    public float CurDamage;
+    public float CurrentDamage;
     public AmmunitionType Type = AmmunitionType.Bullet;
 }

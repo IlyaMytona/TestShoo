@@ -20,12 +20,13 @@ public class WeaponSoData : ScriptableObject
             Force = 300.0f;
             RechergeTime = 0.2f;
             PelletsCount = 0;
-        }        
+        }
+
         if (type == AmmunitionType.FractionBullet)
         {
             WeaponIcon = Resources.Load<Sprite>("Sprites/Shotgun");
-            Force = 400.0f;
-            RechergeTime = 1.5f;
+            Force = 100.0f;
+            RechergeTime = 1.0f;
             PelletsCount = 6;
         }
     }

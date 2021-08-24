@@ -2,11 +2,15 @@
 using UnityEngine;
 
 
-public class DestroyExplosive : MonoBehaviour
+namespace Test.Throw
 {
-    private IEnumerator Start()
+    public class DestroyExplosive : MonoBehaviour
     {
-        yield return new WaitForSeconds(2.0f);
-        Destroy(gameObject);
+        private IEnumerator Start()
+        {
+            yield return new WaitForSeconds(2.0f);
+            Destroy(gameObject);
+        }
     }
 }
+
