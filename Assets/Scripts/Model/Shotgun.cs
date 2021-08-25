@@ -43,7 +43,7 @@ namespace Test.Model
             int j = 0;
             foreach (var ray in rays)
             {
-                var tempAmmunition = _poolObject.GetObject(_weaponBehaviour.Barrel.position, _rayDirections[j]);
+                var tempAmmunition = _poolObject.GetObject(_weaponBehaviour.Barrel.position, Quaternion.LookRotation(_rayDirections[j]));
                 tempAmmunition.AddForce(_weaponBehaviour.Force);
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit, _range, _shootableMask))

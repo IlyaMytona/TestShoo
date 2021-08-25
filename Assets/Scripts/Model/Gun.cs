@@ -13,10 +13,10 @@ namespace Test.Model
             if (!_isReadyToShoot) return;
             if (_isReloading) return;
             if (Clip.CountAmmunition <= 0) return;
-            var tempAmmunition = _poolObject.GetObject(_weaponBehaviour.Barrel.position, _weaponBehaviour.Barrel.rotation);            
-            if (tempAmmunition == null) return;            
-            
-            _gunAudioSource.Play();
+            var tempAmmunition = _poolObject.GetObject(_weaponBehaviour.Barrel.position, _weaponBehaviour.Barrel.rotation);
+            if (tempAmmunition == null) return;
+
+            _gunAudioSource.Play(); //PlayOneShot
             _gunLight.enabled = true;
 
             _gunParticles.Stop();
@@ -43,7 +43,7 @@ namespace Test.Model
             tempAmmunition.AddForce(_weaponBehaviour.Force);
             Clip.CountAmmunition--;
             _isReadyToShoot = false;
-            _timeRemaining.AddTimeRemaining(_weaponBehaviour.RechergeTime);            
+            _timeRemaining.AddTimeRemaining(_weaponBehaviour.RechergeTime);
         }
     }
 }

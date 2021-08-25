@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35c1cfd5fbc9e3744a60219c8e7ee3c4, type: 3}
   m_Name: Bullet
   m_EditorClassIdentifier: 
-  TimeToDestruct: 2
+  TimeToDestruct: 4
   BaseDamage: 10
-  CurDamage: 0
+  CurrentDamage: 10
   Type: 2

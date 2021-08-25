@@ -19,7 +19,7 @@ namespace Test.Controllers
         private readonly GenericInput _verticallRotationInput = new GenericInput("", "RightStickVertical");
         private readonly GenericInput _jumpInput = new GenericInput("Space", "X");        
         [Header("Shooter Inputs")]
-        private readonly GenericInput _shotInput = new GenericInput("Mouse0", false, "RT", false);
+        private readonly GenericInput _shotInput = new GenericInput("Fire1", "RT");
         private readonly GenericInput _reloadInput = new GenericInput("R", "RG");
         private readonly GenericInput _weaponChangeInput = new GenericInput("Mouse ScrollWheel", "");
         private readonly GenericInput _takeGunWeaponInput = new GenericInput("1", "1");
